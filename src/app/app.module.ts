@@ -15,6 +15,7 @@ import { Signup1Component } from './components/signup/signup1/signup1.component'
 import { Signup2Component } from './components/signup/signup2/signup2.component';
 import { Signup3Component } from './components/signup/signup3/signup3.component';
 import { HomeComponent } from './components/home/home/home.component';
+import { PlanformComponent } from './components/signup/signup3/planform/planform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HomeComponent } from './components/home/home/home.component';
     Signup1Component,
     Signup2Component,
     Signup3Component,
-    HomeComponent
+    HomeComponent,
+    PlanformComponent
   ],
   imports: [
     BrowserModule,

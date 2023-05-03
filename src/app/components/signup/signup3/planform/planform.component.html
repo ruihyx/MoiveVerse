@@ -1,0 +1,28 @@
+
+<form  class="container">
+    <div class="row">
+        <ng-container >
+        <div class="col-3 col-1">
+        <div class="r header"></div>
+        <div class="r price">Monthly price</div>
+        <div class="r video">Video quality</div>
+        <div class="r resolution">Resolution</div>
+        <div class="r device">Watch on your TV, computer, mobile phone and tablet</div>
+        <div class="r download">Downloads</div>
+    </div>
+         </ng-container>
+      <ng-container *ngFor="let plan of plans; index as i">
+          
+        <div class="col-3" (click)="selectPlan(i)" [ngClass]="{'selected': selectedPlan === i}">
+          <div class="r header">{{ plan.header }}</div>
+          <div *ngIf="selectedPlan === i" class="triangle"></div>
+          <div class="r price">{{ plan.price }}</div>
+          <div class="r video">{{ plan.video }}</div>
+          <div class="r resolution">{{ plan.resolution }}</div>
+          <div class="r device">{{ plan.device ? '&#10003;' : '' }}</div>
+          <div class="r download">{{ plan.download ? '&#10003;' : '&#8211;' }}</div>
+        </div>
+      </ng-container>
+    </div>
+    <button type="submit" style="display:none;"></button>
+  </form>
