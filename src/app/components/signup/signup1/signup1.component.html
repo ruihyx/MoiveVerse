@@ -1,0 +1,27 @@
+
+  <div class="signup1-container">
+    <form class="example-form">
+        <h6 class="item">STEP 1 OF 3</h6>
+        <h2 class="item">Welcome back!</h2>
+        <h2 class="item">Joining Netflix is easy.</h2>
+        <h5 class="item">Enter your password and you'll be watching in no time.</h5>
+        <h5 class="item email">Email</h5>
+        <h5 class="item">ddddd@gmail.com</h5>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input type="password" matInput [formControl]="pwFormControl" >
+        <mat-error *ngIf="pwFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        
+      </mat-form-field>
+      <h5 class="item">Forgot your password?</h5>
+      
+          <button mat-raised-button color="warn" type="submit">
+              Next
+          </button>
+            
+      </form>
+  
+    </div>

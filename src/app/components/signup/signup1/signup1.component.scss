@@ -1,0 +1,23 @@
+.signup1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+.example-form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.item{
+    padding: 0px;
+    margin: 5px;
+}
+.email{
+    margin-top: 20px;
+}
+.mat-mdc-raised-button.mat-mdc-button-base{
+   height: 50px;
+}

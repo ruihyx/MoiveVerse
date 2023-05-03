@@ -1,0 +1,27 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.example-form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+.title{
+    color:white
+}
+
+.checkline{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+
+.help{
+ font-size: 75%;
+ color: #fff;
+}

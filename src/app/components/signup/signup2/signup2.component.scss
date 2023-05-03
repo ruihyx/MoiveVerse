@@ -1,0 +1,56 @@
+.signup2-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+.example-form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+}
+
+.step{
+    align-items: center;
+}
+
+.checkmark-group--icon {
+    align-self: flex-start;
+    color: #e50914;
+    flex: none;
+    height: 26px;
+    width: 26px;
+}
+.benefit {
+    
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.comment{
+   
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 10px
+    
+}
+button{
+    width: 90%;
+}
+.commenttext{
+    font-size: 17px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.mat-mdc-raised-button.mat-mdc-button-base{
+    height: 50px;
+ }
