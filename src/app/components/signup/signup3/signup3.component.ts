@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-signup3',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup3.component.scss']
 })
 export class Signup3Component {
+  constructor(private userServie:UserService, private router: Router){}
+
+  onSubmit(){
+    this.router.navigate(['/movie'])
+
+  }
 
 }

@@ -1,3 +1,20 @@
+.header{
+    display: flex;
+    justify-content: space-between; 
+    padding: 30px;
+    border-bottom: 1px solid#ccc;
+  }
+
+  .default-ltr-cache-mv4tc2 {
+    
+    width: 9.25rem;
+    height: 2.5rem;
+    color: rgba(229, 9, 20, 1);
+    fill: currentColor;
+    display: block;
+    z-index: 2;
+    
+  }
 .signup2-container {
     display: flex;
     justify-content: center;
@@ -53,4 +70,10 @@ button{
 
 .mat-mdc-raised-button.mat-mdc-button-base{
     height: 50px;
+ }
+
+ #signout{
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
  }

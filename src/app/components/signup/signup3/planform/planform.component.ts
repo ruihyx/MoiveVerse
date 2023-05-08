@@ -33,6 +33,9 @@ export class PlanformComponent {
       download: false
     }
   ];
+  constructor(){
+
+  }
 
   selectPlan(planIndex: number): void {
     this.selectedPlan = planIndex;

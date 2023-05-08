@@ -1,3 +1,27 @@
+.header{
+    display: flex;
+    justify-content: space-between; 
+    padding: 30px;
+    border-bottom: 1px solid#ccc;
+  }
+
+  .default-ltr-cache-mv4tc2 {
+    
+    width: 9.25rem;
+    height: 2.5rem;
+    color: rgba(229, 9, 20, 1);
+    fill: currentColor;
+    display: block;
+    z-index: 2;
+    
+  }
+.signup3-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
 .checkmark-group--icon {
     align-self: flex-start;
     color: #e50914;
@@ -24,3 +48,25 @@
     padding: 10px
 
 }
+
+
+.example-form{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
+
+.item{
+    padding: 0px;
+    margin: 5px;
+}
+
+.mat-mdc-raised-button.mat-mdc-button-base{
+    height: 50px;
+ }
+
+ #signout{
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
+ }

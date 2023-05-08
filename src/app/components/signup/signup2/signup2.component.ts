@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-signup2',
@@ -12,4 +14,12 @@ coms =[
   "Unlimited viewing on all your devices."
 
 ]
+
+constructor(private userService:UserService, private router: Router){
+
+}
+onNext(){
+  this.router.navigate(['/signup3'])
+}
+
 }

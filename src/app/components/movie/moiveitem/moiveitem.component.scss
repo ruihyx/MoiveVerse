@@ -1,0 +1,35 @@
+.movieitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background-color: #d8cece;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+    height: 450px;
+
+  }
+  img {
+    align-items: center;
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+  }
+  h3 {
+    align-items: left;
+    font-size: 18px;
+    color: rgb(120, 118, 118);
+    margin: 5px 0;
+    width: 80%;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgb(120, 118, 118);
+    margin: 5px;
+    width: 80%;
+  }
+
+ 

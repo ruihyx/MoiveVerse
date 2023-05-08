@@ -1,0 +1,15 @@
+.movielist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 100%;
+    flex-direction: row;
+    row-gap: 10px;
+  column-gap: 10px;
+
+    // @media (max-width: 1200px) {
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
+}

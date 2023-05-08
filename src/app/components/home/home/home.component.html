@@ -27,10 +27,10 @@
             <h3 class="inputtitle">
               Ready to watch? Enter your email to create or restart your membership.
             </h3>
-            <div class="inputline">
-              <input class="inputbox" placeholder="email adress" value>
-              <button class="start">Get Start ></button>
-            </div>
+            <form class="inputline" [formGroup]="form" >
+              <input class="inputbox" formControlName="email" placeholder="email adress" >
+              <button class="start"  type="submit" >Get Start ></button>
+            </form>
           </div>
         </div>
       

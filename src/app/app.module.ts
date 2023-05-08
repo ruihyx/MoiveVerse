@@ -16,6 +16,10 @@ import { Signup2Component } from './components/signup/signup2/signup2.component'
 import { Signup3Component } from './components/signup/signup3/signup3.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { PlanformComponent } from './components/signup/signup3/planform/planform.component';
+import { Signup11Component } from './components/signup/signup11/signup11.component';
+import { MovielistComponent } from './components/movie/movielist/movielist.component';
+import { MoiveitemComponent } from './components/movie/moiveitem/moiveitem.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,8 +27,12 @@ import { PlanformComponent } from './components/signup/signup3/planform/planform
     Signup1Component,
     Signup2Component,
     Signup3Component,
+    Signup11Component,
     HomeComponent,
-    PlanformComponent
+    PlanformComponent,
+    Signup11Component,
+    MovielistComponent,
+    MoiveitemComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,8 @@ import { PlanformComponent } from './components/signup/signup3/planform/planform
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],
