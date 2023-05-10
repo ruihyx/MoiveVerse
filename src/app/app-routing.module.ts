@@ -9,7 +9,7 @@ import { Signup11Component } from './components/signup/signup11/signup11.compone
 import { HomeComponent } from './components/home/home/home.component';
 import { MovielistComponent } from './components/movie/movielist/movielist.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: '', redirectTo: '/signup1', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup1', component: Signup1Component },
   { path: 'signup2', component: Signup2Component },

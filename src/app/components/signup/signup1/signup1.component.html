@@ -19,13 +19,22 @@
      
         <mat-form-field appearance="fill">
           <mat-label>Email or phonenumber</mat-label>
-          <input type="email" matInput formControlName="email"  >
-          <mat-error *ngIf="!email?.valid && email?.touched ">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="email?.touched">
+          <input type="email" matInput formControlName="email">
+          <!-- <div *ngIf="email?.pending">Validating email...</div> -->
+          <mat-error *ngIf="email?.errors?.['required']">
             Email is <strong>required</strong>
           </mat-error>
+          <mat-error *ngIf="email?.errors?.['email']">
+            Please enter a valid email address
+          </mat-error>
+         
+          <mat-error *ngIf="email?.errors?.['alreadyExists']">
+            Email is exsit, try to use another amail
+          </mat-error>
+          <!-- {{ email?.errors? (email?.errors | json) : '' }} -->
+
+ 
+
         </mat-form-field>
     
         <mat-form-field appearance="fill">
@@ -36,7 +45,7 @@
           </mat-error>
           
         </mat-form-field>
-          <button mat-raised-button color="warn" type="submit">
+          <button mat-raised-button color="warn" type="submit" [disabled]="form.invalid || form.pending">
               Next
           </button>
             

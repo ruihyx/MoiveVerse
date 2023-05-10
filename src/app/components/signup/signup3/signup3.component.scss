@@ -15,12 +15,23 @@
     z-index: 2;
     
   }
+
+
 .signup3-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: white;
+   
+}
+
+.example-form{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
 }
 .checkmark-group--icon {
     align-self: flex-start;
@@ -48,8 +59,19 @@
     padding: 10px
 
 }
+button{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20px;
+    
+}
 
-
+.bottom{
+    margin-top: 20px;
+    div{
+        margin-top: 10px;
+    }
+}
 .example-form{
     display: flex;
     flex-direction: column;
