@@ -64,7 +64,7 @@ export class Signup1Component implements OnInit {
     if (this.form.valid) {
       // Save email and password to local storage or a shared service
       this.userService.email = this.form.get('email')?.value;
-      this.userService.password = this.password?.value;
+      this.userService.password = this.form.get('password')?.value;
       this.router.navigate(['/signup11'])
 
     }

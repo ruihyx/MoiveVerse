@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-planform',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PlanformComponent {
   selectedPlan: number | null = null;
+  @Output() submitPlan: EventEmitter<number> = new EventEmitter<number>()
   plans = [
     {
       header: "With Ads",
@@ -39,6 +40,8 @@ export class PlanformComponent {
 
   selectPlan(planIndex: number): void {
     this.selectedPlan = planIndex;
+    console.log(this.selectedPlan)
+    this.submitPlan.emit(planIndex);
   }
 
 

@@ -20,31 +20,38 @@ import { Signup11Component } from './components/signup/signup11/signup11.compone
 import { MovielistComponent } from './components/movie/movielist/movielist.component';
 import { MoiveitemComponent } from './components/movie/moiveitem/moiveitem.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviedetailComponent } from './components/movie/moviedetail/moviedetail.component';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent,
-    Signup1Component,
-    Signup2Component,
-    Signup3Component,
-    Signup11Component,
-    HomeComponent,
-    PlanformComponent,
-    Signup11Component,
-    MovielistComponent,
-    MoiveitemComponent,
+    // SigninComponent,
+    // Signup1Component,
+    // Signup2Component,
+    // Signup3Component,
+    // Signup11Component,
+    // HomeComponent,
+    // PlanformComponent,
+    // Signup11Component,
+    // MovielistComponent,
+    // MoiveitemComponent,
+    // MoviedetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    FormsModule,
-    HttpClientModule
+    // MatInputModule,
+    // MatFormFieldModule,
+    // MatButtonModule,
+    // MatCheckboxModule,
+    // FormsModule,
+    HttpClientModule,
+    CoreModule,
+    // SharedModule,
+
 
   ],
   providers: [],

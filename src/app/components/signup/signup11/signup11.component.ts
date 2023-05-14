@@ -31,7 +31,7 @@ export class Signup11Component implements OnInit{
 
   onNext(){
     this.userService.username = this.username?.value;
-    this.userService.tmdbApiKey = this.tmdb?.value;
+    this.userService.tmdb_Key = this.tmdb?.value;
     this.router.navigate(['/signup2'])
 
   }

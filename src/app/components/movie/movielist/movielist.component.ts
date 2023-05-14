@@ -25,4 +25,6 @@ export class MovielistComponent implements OnInit {
   ngOnDestroy(): void {
     this.movieSubscription.unsubscribe();
   }
+
+
 }
