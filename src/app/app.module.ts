@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MoviedetailComponent } from './components/movie/moviedetail/moviedetail.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { AuthGuard } from './auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,7 @@ import { CoreModule } from './core/core.module';
 
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

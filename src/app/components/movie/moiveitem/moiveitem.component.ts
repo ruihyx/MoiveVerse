@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {Movie,  MovieService } from 'src/app/service/movie.service';
 
 
@@ -9,14 +10,18 @@ import {Movie,  MovieService } from 'src/app/service/movie.service';
 })
 export class MoiveitemComponent implements OnInit {
   @Input() movie!: Movie;
+  loading = false;
 
 
-  constructor(){}
+  constructor(private router: Router){}
   
   ngOnInit(): void {
     
   }
-  
+  viewMovieDetail(id: number): void {
+    this.loading = true;
+    this.router.navigate(['/movies', id]);
+  }
 
 
 }

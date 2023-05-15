@@ -59,25 +59,44 @@ export class SigninComponent {
   //     }
 
   // }
-  onSignIn() {
+  // onSignIn() {
+  //   if (this.form.valid) {
+
+  //     const headers = new HttpHeaders({
+  //       Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+  //     });
+
+  //     this.authService.signIn(this.form.value,{headers}).subscribe(
+  //       (res) => {
+  //         // 存储accessToken和角色到localStorage
+  //         localStorage.setItem('accessToken', res.accessToken);
+  //         localStorage.setItem('role', res.role);
+  //         this.router.navigateByUrl('/movie');
+  //       },
+  //       (err) => {
+  //         console.log(err);
+  //       }
+  //     );
+  //   }
+  // }
+  onSignIn(): void {
     if (this.form.valid) {
-
-      const headers = new HttpHeaders({
-        Authorization: 'Bearer ' + localStorage.getItem('accessToken')
-      });
-
-      this.authService.signIn(this.form.value,{headers}).subscribe(
-        (res) => {
-          // 存储accessToken和角色到localStorage
-          localStorage.setItem('accessToken', res.accessToken);
-          localStorage.setItem('role', res.role);
-          this.router.navigateByUrl('/movie');
+      const signinCredentialsDto = {
+        email: this.form.value.email,
+        password: this.form.value.password
+      };
+      this.authService.signIn(signinCredentialsDto).subscribe(
+        (response) => {
+          console.log('Sign in successful:', response);
+          localStorage.setItem('accessToken', response.accessToken);
+          localStorage.setItem('role', response.role);
+          this.router.navigate(['/movie']);
         },
-        (err) => {
-          console.log(err);
+        (error) => {
+          console.error('Sign in failed:', error);
         }
       );
     }
   }
-}
 
+}

@@ -1,40 +1,21 @@
-<!-- <h2>Movie Trailer</h2>
-<div *ngFor="let video of videos">
-  <youtube-player videoId="{{ video.key }}"></youtube-player>
-</div> -->
-<!-- <h2>Movie Trailer</h2> 
-<mat-dialog-content>
-  <div *ngFor="let video of data.videos">
-    <h3>{{ video.name }}</h3>
-    <div class="embed-responsive embed-responsive-16by9">
-      <youtube-player
-      videoId="{{video.key}}"
-        [width]="640"
-        [height]="360"
-      ></youtube-player>
-    </div>
+<h1 mat-dialog-title>Movie Trailers</h1>
+<div mat-dialog-content>
+  
+  <youtube-player 
+    [videoId]="videoId" 
+    [height]="500" 
+    [width]="100">
+  </youtube-player>
+
+ 
+  <div *ngFor="let trailer of trailers">
+    <img 
+      [src]="'https://img.youtube.com/vi/' + trailer.key + '/0.jpg'"
+      (click)="setVideoId(trailer.key)"
+      alt="{{ trailer.name }}"
+      style="width: 120px; height: 90px; cursor: pointer">
   </div>
-</mat-dialog-content>
-<mat-dialog-actions>
+</div>
+<div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
-</mat-dialog-actions> --> -->
-<!-- <h2 mat-dialog-title>Movie Trailer</h2>
-    <div mat-dialog-content>
-      <div *ngIf="videos.length > 0; else noVideos">
-        <mat-form-field>
-          <mat-label>Select Trailer</mat-label>
-          <mat-select [(value)]="selectedVideo">
-            <mat-option *ngFor="let video of videos" [value]="video.key">{{ video.name }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div class="video-container">
-          <youtube-player [videoId]="selectedVideo" width="100%" height="400px"></youtube-player>
-        </div>
-      </div>
-      <ng-template #noVideos>
-        <p>No trailers available</p>
-      </ng-template>
-    </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="closeDialog()">Close</button>
-    </div> -->
+</div>

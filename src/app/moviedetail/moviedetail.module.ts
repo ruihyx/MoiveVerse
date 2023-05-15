@@ -7,10 +7,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TrailerdialogComponent } from '../components/movie/trailerdialog/trailerdialog.component';
+import { MoviedetailResolver } from '../moviedetail.resolver';
 
 const routes: Routes =[
   {path: '',
-component: MoviedetailComponent}
+component: MoviedetailComponent,
+resolve: {
+  movie: MoviedetailResolver
+}
+  }
 ]
 
 @NgModule({
@@ -18,9 +23,9 @@ component: MoviedetailComponent}
   imports: [
     CommonModule,
     SharedModule,
-    YouTubePlayerModule,
+    // YouTubePlayerModule,
     RouterModule.forChild(routes),
-    MatDialogModule
+    // MatDialogModule
   
 
   ]

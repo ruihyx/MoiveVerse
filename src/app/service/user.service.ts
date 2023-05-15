@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,23 @@ export class UserService {
   role: string | null = null;
   tmdb_Key: string | null = null;
   
-  constructor() { }
+  constructor(private router: Router) { }
 
-claerUserData(){
- 
-}
+  get isUserLoggedIn(): boolean {
+    return !!localStorage.getItem('accessToken');
+  }
+  
+  get currentUser(): string | null {
+    return localStorage.getItem('username');
+  }
+  
+  logout(): void {
+    localStorage.removeItem('accessToken');
+    // localStorage.removeItem('username');
+    // localStorage.removeItem('tmdb_Key');
+    this.router.navigate(['/signin']);
+  }
+
   // setUserInfo(email: string, password: string, username: string, tmdbApiKey: string, plan: string) {
   //   this.email = email;
   //   this.password = password;

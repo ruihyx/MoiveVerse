@@ -28,4 +28,22 @@ export class HomeComponent implements OnInit {
 
 
   }
+  tosignin(){
+    this.router.navigate(['signin'])
+  }
+  getStart(){
+    this.router.navigate(['signup1'])
+  }
+
+  get isUserLoggedIn(): boolean {
+    return this.userService.isUserLoggedIn;
+  }
+  
+  get currentUser(): string | null {
+    return localStorage.getItem('username');
+  }
+  
+  signOut(): void {
+    this.userService.logout();
+  }
 }

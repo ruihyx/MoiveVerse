@@ -12,7 +12,12 @@
     display: flex;
 
   }
+.username{
+  color:aliceblue;
+  z-index: 2;
+  margin-right: 15px;
 
+}
   
   .uppersection{
     position: relative;
@@ -151,7 +156,12 @@
     font-size: 15px;
     
   }
-  
+#signout{
+    color: white;
+    background-color: rgb(229, 9, 20, 1);
+    border:rgb(229, 9, 20, 1);
+    height:30px
+  }
   
   h1{
     color: white;

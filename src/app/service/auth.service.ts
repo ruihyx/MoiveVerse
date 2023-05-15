@@ -18,8 +18,8 @@ export class AuthService {
   //   return this.http.post('http://localhost:4231/auth/signin',userData );
   // }
 
-  signIn(data: any, options?: { headers: HttpHeaders }): Observable<any> {
-    return this.http.post<any>('http://localhost:4231/auth/signin', data, options);
+  signIn(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:4231/auth/signin', data);
   }
 
   signUp(userData: any

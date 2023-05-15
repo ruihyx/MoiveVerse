@@ -4,11 +4,13 @@ import { MovielistComponent } from '../components/movie/movielist/movielist.comp
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { MoiveitemComponent } from '../components/movie/moiveitem/moiveitem.component';
+import { AuthGuard } from '../auth.guard';
 // import { MoiveitemComponent } from '../components/movie/moiveitem/moiveitem.component';
 
 const routes: Routes =[
   {path: '',
-component: MovielistComponent}
+component: MovielistComponent,
+canActivate: [AuthGuard]}
 ]
 
 @NgModule({

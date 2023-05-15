@@ -40,7 +40,7 @@ submitForm(planIndex: number):void{
         password: this.userServie.password || '',
         email:this.userServie.email || '',
         role:'ADMIN',
-        tmdb_key:this.userServie.tmdb_Key || '',
+        tmdb_key:this.userServie.tmdb_Key || '' ,
         // selectedPlan: this.selectedPlan
         
       };
@@ -52,6 +52,13 @@ submitForm(planIndex: number):void{
             console.log('Registration successful:', response);
             localStorage.setItem('accessToken', response.accessToken);
             localStorage.setItem('role', response.role);
+            if (this.userServie.tmdb_Key) {
+              localStorage.setItem('tmdb_Key', this.userServie.tmdb_Key);
+            };
+            if (this.userServie.username) {
+              localStorage.setItem('username', this.userServie.username);
+            }
+           
             // 进行进一步的导航或处理
             this.router.navigate(['/movie']);
           },

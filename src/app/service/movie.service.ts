@@ -44,8 +44,9 @@ private readonly BASE_URL = 'https://api.themoviedb.org/3';
   constructor(private http: HttpClient, private userService: UserService) { }
 
   getMovies(): void {
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=acf5e249ff0bb70af5fd761e0135b2e8`;
-    //  const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${this.userService.tmdbApiKey}`;
+    const tmdb_Key = localStorage.getItem('tmdb_Key');
+    // const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=acf5e249ff0bb70af5fd761e0135b2e8`;
+     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdb_Key}`;
     this.http.get<Movie[]>(apiUrl).pipe(
       map((response: any) => response.results)
     ).subscribe(movies => {
@@ -59,10 +60,18 @@ private readonly BASE_URL = 'https://api.themoviedb.org/3';
     return this.http.get<Movie>(apiUrl);
   }
 
-  getMovieVideos(movieId: number): Observable<Video[]> {
-    const apiUrl = `${this.BASE_URL}/movie/${movieId}/videos?api_key=${this.API_KEY}`;
-    return this.http.get<Video[]>(apiUrl).pipe(
-      map((response: any) => response.results)
-    );
+  // getMovieVideos(movieId: number): Observable<Video[]> {
+  //   const apiUrl = `${this.BASE_URL}/movie/${movieId}/videos?api_key=${this.API_KEY}`;
+  //   return this.http.get<Video[]>(apiUrl).pipe(
+  //     map((response: any) => response.results)
+  //   );
+  // }
+  getMovie(movieId: number): Observable<Movie> {
+    const apiUrl = `${this.BASE_URL}/movie/${movieId}?api_key=${this.API_KEY}`;
+    return this.http.get<Movie>(apiUrl);
+  }
+
+  getMovieTrailers(id: number): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}/movie/${id}/videos?api_key=${this.API_KEY}`);
   }
 }
