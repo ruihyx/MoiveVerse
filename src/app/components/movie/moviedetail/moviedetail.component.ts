@@ -53,7 +53,7 @@ export class MoviedetailComponent implements OnInit {
 
   openTrailerDialog(): void {
     const dialogRef = this.dialog.open(TrailerdialogComponent, {
-      width: '70%',
+      width: '90%',
       data: { trailers: this.trailers }
     });
   }

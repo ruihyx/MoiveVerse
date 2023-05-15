@@ -31,11 +31,11 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss",
-              "node_modules/@angular/youtube-player/fesm2015/ngx-youtube-player.css"
+              "src/styles.scss"
+             
             ],
             "scripts": [
-              "node_modules/@angular/youtube-player/fesm2015/ngx-youtube-player.js"
+            
             ]
           },
           "configurations": {
