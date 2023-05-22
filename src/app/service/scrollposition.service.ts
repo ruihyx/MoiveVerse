@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ScrollpositionService {
-  private positions = new Map<string, [number, number]>();
-
   setScroll(url: string, position: [number, number]): void {
-    this.positions.set(url, position);
+    sessionStorage.setItem(`scrollPositions_${url}`, JSON.stringify(position));
   }
 
-  getScroll(url: string): [number, number] | undefined {
-    return this.positions.get(url);
+  getScroll(url: string): [number, number] | null {
+    const position = sessionStorage.getItem(`scrollPositions_${url}`);
+    return position ? JSON.parse(position) : null;
   }
+
 
 }
