@@ -32,21 +32,18 @@ export interface Video {
 
 
 export class MovieService {
-  // private readonly API_KEY = 'your-tmdb-api-key';
+  
   moviesSubject = new Subject<Movie[]>();
 
-private readonly API_KEY = "acf5e249ff0bb70af5fd761e0135b2e8";
-// private readonly API_KEY = this.userService.tmdbApiKey;
 private readonly BASE_URL = 'https://api.themoviedb.org/3';
-
+private readonly tmdb_Key = localStorage.getItem('tmdb_Key');
 
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
   getMovies(): void {
-    const tmdb_Key = localStorage.getItem('tmdb_Key');
-    // const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=acf5e249ff0bb70af5fd761e0135b2e8`;
-     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdb_Key}`;
+    console.log(this.tmdb_Key)
+     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${this.tmdb_Key}`;
     this.http.get<Movie[]>(apiUrl).pipe(
       map((response: any) => response.results)
     ).subscribe(movies => {
@@ -56,22 +53,20 @@ private readonly BASE_URL = 'https://api.themoviedb.org/3';
   }
 
   getMovieDetails(movieId: number): Observable<Movie> {
-    const apiUrl = `${this.BASE_URL}/movie/${movieId}?api_key=${this.API_KEY}`;
+
+    const apiUrl = `${this.BASE_URL}/movie/${movieId}?api_key=${this.tmdb_Key}`;
     return this.http.get<Movie>(apiUrl);
   }
 
-  // getMovieVideos(movieId: number): Observable<Video[]> {
-  //   const apiUrl = `${this.BASE_URL}/movie/${movieId}/videos?api_key=${this.API_KEY}`;
-  //   return this.http.get<Video[]>(apiUrl).pipe(
-  //     map((response: any) => response.results)
-  //   );
-  // }
+
   getMovie(movieId: number): Observable<Movie> {
-    const apiUrl = `${this.BASE_URL}/movie/${movieId}?api_key=${this.API_KEY}`;
+
+    const apiUrl = `${this.BASE_URL}/movie/${movieId}?api_key=${this.tmdb_Key}`;
     return this.http.get<Movie>(apiUrl);
   }
 
   getMovieTrailers(id: number): Observable<any> {
-    return this.http.get<any>(`${this.BASE_URL}/movie/${id}/videos?api_key=${this.API_KEY}`);
+
+    return this.http.get<any>(`${this.BASE_URL}/movie/${id}/videos?api_key=${this.tmdb_Key}`);
   }
 }

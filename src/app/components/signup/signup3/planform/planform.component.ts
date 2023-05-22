@@ -10,7 +10,7 @@ export class PlanformComponent {
   @Output() submitPlan: EventEmitter<number> = new EventEmitter<number>()
   plans = [
     {
-      header: "With Ads",
+      header: "Standard with ads",
       price: "6.99",
       video: "Great",
       resolution: "1080p",
@@ -18,20 +18,20 @@ export class PlanformComponent {
       download: false
     },
     {
-      header: "Your Column 3 Header",
-      price: "Your Price",
-      video: "Your Video",
-      resolution: "Your Resolution",
+      header: "Standard",
+      price: "15.49",
+      video: "Great",
+      resolution: "1080p",
       device: true,
-      download: false
+      download: true
     },
     {
-      header: "Your Column 4 Header",
-      price: "Your Price",
-      video: "Your Video",
-      resolution: "Your Resolution",
+      header: "Premium",
+      price: "19.99",
+      video: "Best",
+      resolution: "4K+HDR",
       device: true,
-      download: false
+      download: true
     }
   ];
   constructor(){

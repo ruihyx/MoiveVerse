@@ -27,4 +27,13 @@ export class AuthService {
 
     return this.http.post('http://localhost:4231/auth/signup', userData);
   }
-}
+
+  update(userData: any): Observable<any>{
+    return this.http.patch(`${this.apiUrl}/auth/userupdate`, userData)
+
+  }
+
+  }
+
+
+

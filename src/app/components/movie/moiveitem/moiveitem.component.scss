@@ -1,4 +1,5 @@
 .movieitem {
+  position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +9,7 @@
     margin: 5px;
     padding: 5px;
     width: 250px;
-    height: 450px;
+    height: 490px;
 
   }
   img {
@@ -30,6 +31,10 @@
     color: rgb(120, 118, 118);
     margin: 5px;
     width: 80%;
+  }
+.btn{
+    position:absolute;
+    bottom: 2%;
   }
 
  

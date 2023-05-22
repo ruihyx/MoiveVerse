@@ -19,11 +19,13 @@ import { PlanformComponent } from './components/signup/signup3/planform/planform
 import { Signup11Component } from './components/signup/signup11/signup11.component';
 import { MovielistComponent } from './components/movie/movielist/movielist.component';
 import { MoiveitemComponent } from './components/movie/moiveitem/moiveitem.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MoviedetailComponent } from './components/movie/moviedetail/moviedetail.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth.guard';
+import { JwtInterceptor } from './jwt.interceptor';
+import { ViewportScroller } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +57,9 @@ import { AuthGuard } from './auth.guard';
 
 
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

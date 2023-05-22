@@ -29,11 +29,5 @@ export class UserService {
     this.router.navigate(['/signin']);
   }
 
-  // setUserInfo(email: string, password: string, username: string, tmdbApiKey: string, plan: string) {
-  //   this.email = email;
-  //   this.password = password;
-  //   this.username = username;
-  //   this.tmdbApiKey = tmdbApiKey;
-  //   this.plan = plan;
-  // }
+
 }

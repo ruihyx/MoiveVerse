@@ -8,10 +8,12 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TrailerdialogComponent } from '../components/movie/trailerdialog/trailerdialog.component';
 import { MoviedetailResolver } from '../moviedetail.resolver';
+import { RoleGuard } from '../role.guard';
 
 const routes: Routes =[
   {path: '',
 component: MoviedetailComponent,
+canActivate:[RoleGuard],
 resolve: {
   movie: MoviedetailResolver
 }

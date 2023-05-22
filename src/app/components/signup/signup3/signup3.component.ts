@@ -19,6 +19,7 @@ export class Signup3Component {
   password?: string 
   username?: string 
   tmdb_key?: string
+  userService: any;
 
 
   
@@ -34,40 +35,79 @@ submitForm(planIndex: number):void{
   
   onSubmit():void{
     // if (this.selectedPlan !== null && this.email && this.password && this.username) {
-      const data ={
-        username: this.userServie.username || '', 
-        
-        password: this.userServie.password || '',
-        email:this.userServie.email || '',
-        role:'ADMIN',
-        tmdb_key:this.userServie.tmdb_Key || '' ,
-        // selectedPlan: this.selectedPlan
-        
-      };
-        console.log("data: ",data)
+    if(this.selectedPlan === 0){
+      this.role = 'USER'
+    }else if(this.selectedPlan === 1) {
+      this.role = 'SUPERUSER'
+    } else{
+      this.role = 'ADMIN'
+    }
 
-        this.authService.signUp(data).subscribe(
-          (response) => {
-            // 处理注册成功的响应
-            console.log('Registration successful:', response);
-            localStorage.setItem('accessToken', response.accessToken);
-            localStorage.setItem('role', response.role);
-            if (this.userServie.tmdb_Key) {
-              localStorage.setItem('tmdb_Key', this.userServie.tmdb_Key);
-            };
-            if (this.userServie.username) {
-              localStorage.setItem('username', this.userServie.username);
-            }
+   
+        if(this.userServie.isUserLoggedIn){
+          const data ={
+            email:localStorage.getItem('email'),
+            password: localStorage.getItem('password') ,
+            role:this.role || '',
+            tmdb_key:localStorage.getItem('tmdb_Key') ,
+            username: localStorage.getItem('username') ,   
+          };
+    
+            console.log("data: ",data)
+          this.authService.update(data).subscribe(
+            (response) => {
+              console.log('User updated successfully:', response);
+              // Update the user information in the UserService
+          
+              localStorage.setItem('accessToken', response.accessToken);
+              localStorage.setItem('role', response.role);
+                this.router.navigate(['/movie'])}
+          )
+
+        }else{
+          const data ={
+            email:this.userServie.email || '',
+            password: this.userServie.password || '',
+            role:this.role || '',
+            tmdb_key:this.userServie.tmdb_Key || '' ,
+            username: this.userServie.username || '', 
+            
+          };
+    
+            console.log("data: ",data)
+          this.authService.signUp(data).subscribe(
+            (response) => {
            
-            // 进行进一步的导航或处理
-            this.router.navigate(['/movie']);
-          },
-          (error) => {
-            // 处理注册失败的错误
-            console.error('Registration failed:', error);
-            // 进行错误处理或显示适当的错误消息
-          }
-        );
+              console.log('Registration successful:', response);
+              localStorage.setItem('accessToken', response.accessToken);
+              localStorage.setItem('role', response.role);
+              if (this.userServie.tmdb_Key) {
+                localStorage.setItem('tmdb_Key', this.userServie.tmdb_Key);
+              };
+              if (this.userServie.password) {
+                localStorage.setItem('password', this.userServie.password);
+              };
+
+              if (this.userServie.email) {
+                localStorage.setItem('email', this.userServie.email);
+              };
+              if (this.userServie.username) {
+                localStorage.setItem('username', this.userServie.username);
+              }
+             
+              
+              this.router.navigate(['/movie']);
+            },
+            (error) => {
+          
+              console.error('Registration failed:', error);
+              
+            }
+          );
+
+        }
+
+  
       }
     }
 
