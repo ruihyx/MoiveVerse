@@ -6,7 +6,8 @@
     // background-color: #d8cece;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 5px;
+    margin-bottom: 5px;
+    margin-top: 0px;
     padding: 5px;
     width: 250px;
     height: 490px;
@@ -34,7 +35,15 @@
   }
 .btn{
     position:absolute;
-    bottom: 2%;
+    bottom: 3%;
+    height:30px;
+    border-radius: 2px;
+    border:rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    background-color:rgb(207, 246, 246);
+    color: rgb(120, 118, 118);
+
   }
 
  

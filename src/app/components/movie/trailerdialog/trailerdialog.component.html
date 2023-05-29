@@ -1,21 +1,14 @@
+<div class="container">
 <h1 mat-dialog-title>Movie Trailers</h1>
-<div mat-dialog-content>
-  
+
+<div class="content">
+  <button  mat-button class="pre" (click)="onPre()" *ngIf="hasPre()"> < </button>
   <youtube-player 
     [videoId]="videoId" 
     [height]="500" 
     [width]="800">
   </youtube-player>
-
- 
-  <div class="trailer-container">
-    <div *ngFor="let trailer of trailers" class="trailer-item">
-      <img 
-        [src]="'https://img.youtube.com/vi/' + trailer.key + '/0.jpg'"
-        (click)="setVideoId(trailer)"
-        alt="{{ trailer.name }}"
-        style="width: 120px; height: 90px; cursor: pointer">
-    </div>
-  </div>
+  <button  mat-button class="next" (click)="onNext()" *ngIf="hasNext()"> > </button>
+</div>
   <button mat-button mat-dialog-close>Close</button>
 </div>

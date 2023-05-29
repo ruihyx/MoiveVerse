@@ -12,24 +12,9 @@ import { Video } from 'src/app/service/movie.service';
 export class TrailerdialogComponent implements OnInit {
   videoId: string = '';
   trailers: Video[] = [];
+  currentIndex: number = 0;
 
-  // constructor(
-
-  //   public dialogRef: MatDialogRef<TrailerdialogComponent>,
-  //   @Inject(MAT_DIALOG_DATA) public data: { videos: Video[]}){
-
-
-  // }
-
-  // ngOnInit(): void {
-  //   this.videos = this.data.videos;
-  //   this.selectedVideo = this.videos.length > 0 ? this.videos[0].key:null;
  
-  // }
-
-  // closeDialog(){
-  //   this.dialogRef.close();
-  // }
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any) { 
   
@@ -40,7 +25,7 @@ export class TrailerdialogComponent implements OnInit {
       this.trailers = this.data.trailers;
       // set the first trailer's id as the initial videoId
       if(this.trailers.length > 0){
-        this.videoId = this.trailers[0].key;
+       this.setVideoId(this.trailers[this.currentIndex])
       }
     }
     // this.trailers = this.data.trailers;
@@ -51,6 +36,26 @@ export class TrailerdialogComponent implements OnInit {
 
   setVideoId(trailer: any) {
     this.videoId = trailer.key;
+    this.currentIndex = this.trailers.indexOf(trailer)
+  }
+
+  onNext() {
+    if (this.hasNext()){
+      this.setVideoId(this.trailers[this.currentIndex + 1])
+    }
+  }
+  onPre(){
+    if (this.hasPre()) {
+      this.setVideoId(this.trailers[this.currentIndex - 1])
+    }
+  }
+
+  hasPre(){
+    return this.currentIndex > 0
+  }
+
+  hasNext(){
+    return this.currentIndex < this.trailers.length - 1
   }
 
 }

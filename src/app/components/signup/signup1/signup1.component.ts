@@ -59,7 +59,10 @@ export class Signup1Component implements OnInit {
       tap(result => console.log('Final result', result))
     );
   }
-
+  
+  signIn(){
+    this.router.navigate(['/signin'])
+  }
   onNext() {
     if (this.form.valid) {
       // Save email and password to local storage or a shared service

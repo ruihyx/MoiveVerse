@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 import {Movie,  MovieService } from 'src/app/service/movie.service';
 
 
@@ -13,14 +14,19 @@ export class MoiveitemComponent implements OnInit {
   loading = false;
 
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private authService:AuthService){}
   
   ngOnInit(): void {
     
   }
+
   viewMovieDetail(id: number): void {
     this.loading = true;
     this.router.navigate(['/movies', id]);
+    const token = localStorage.getItem('accessToken')
+    if(token)
+    console.log(this.authService.getUserData(token))
+    
   }
 
 

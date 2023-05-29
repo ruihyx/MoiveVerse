@@ -1,13 +1,38 @@
-
+<div class="background-image overlay" [style.background-image]="'url(' + backgroundImageUrl + ')'"></div>
 <div class="movie-details">
-  <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }} poster">
-    <h2>{{ movie.title }}</h2>
+
+
+ 
+  <section class="left">
+    <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }} poster">
+   
+  <h2>{{ movie.title }}</h2>
     <!-- <p>{{ movie.tagline}}</p> -->
     <p>{{ movie.release_date }}</p>
-    <p>{{ movie.vote_average }}</p>
+    <p>Vote average: {{ movie.vote_average }}</p>
     
-    <!-- <p>popularity: {{ movie.popularity}}</p> -->
+    <p>Popularity: {{ movie.popularity}}</p>
     <p>{{ movie.overview}}</p>
     <button mat-button (click)="openTrailerDialog()">Watch Trailer</button>
-    
-  </div>
+  </section>
+    <section class="right">
+    <div class="cast-list">
+      <h2>Cast</h2>
+      <div class="cast-item" *ngFor="let cast of credits.slice(castIndex, castIndex+ 6)">
+        <img class="cast" [src]="'https://image.tmdb.org/t/p/w200' + cast.profile_path" alt="{{ cast.name }}">
+        <p>{{ cast.name }}</p>
+        <p>{{ cast.character }}</p>
+      </div>
+    </div>
+    <div class="image-list">
+      <h2>Images</h2>
+      <div class="image-item" *ngFor="let image of images.slice(imageIndex, imageIndex+3)">
+        <img [src]="'https://image.tmdb.org/t/p/w200' + image.file_path" alt="Movie image">
+      </div>
+    </div>  
+  </section>  
+</div>
+   
+
+  <!-- </div>backdrop_pata
+ -->

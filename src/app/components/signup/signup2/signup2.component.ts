@@ -15,8 +15,21 @@ coms =[
 
 ]
 
-constructor(private userService:UserService, private router: Router){
+constructor(private userService:UserService, private router: Router){}
 
+get isUserLoggedIn(): boolean {
+  return this.userService.isUserLoggedIn;
+}
+
+get currentUser(): string | null {
+  return localStorage.getItem('username');
+}
+
+signOut(): void {
+  this.userService.logout();
+}
+tosignin(){
+  this.router.navigate(['signin'])
 }
 onNext(){
   this.router.navigate(['/signup3'])

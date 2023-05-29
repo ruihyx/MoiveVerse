@@ -17,15 +17,22 @@
   
     <div class="uppersection">
       <div class="uppersection1">
+        
         <div class="background">
+          <span *ngIf="isUserLoggedIn">
+            <button type="movielist" id="movielist" (click)="onMovielist()">Explore your movies</button>
+          </span>
             <img alt="" aria-hidden="true" data-uia="nmhp-card-hero+background+image" src="https://assets.nflxext.com/ffe/siteui/vlv3/efb4855d-e702-43e5-9997-bba0154152e0/41237afb-6f3a-48e2-8b0d-fd3171752a38/US-en-20230417-popsignuptwoweeks-perspective_alpha_website_small.jpg" class="backgroundimg">
           <div class=" default-ltr-cache-1dibr51" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%)" data-uia="nmhp-card-hero+gradient"></div>
       </div>
+     
       </div>
+      
    
       <div class="uppersection2">
         
         <div class="mainbody">
+          
           <h1 class="maintitle">Unlimited movies, TV shows, and more</h1>
           <p  class="maincontent">Watch anywhere. Cancel anytime.</p>  
           <div class="inputbody">

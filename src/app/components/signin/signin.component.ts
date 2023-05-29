@@ -86,16 +86,25 @@ export class SigninComponent {
         password: this.form.value.password
       };
       this.authService.signIn(signinCredentialsDto).subscribe(
-        (response) => {
-          console.log('Sign in successful:', response);
-          localStorage.setItem('accessToken', response.accessToken);
-          localStorage.setItem('role', response.role);
-          this.router.navigate(['/movie']);
+        (response) =>{
+          console.log('signin successful:', response);
         },
-        (error) => {
-          console.error('Sign in failed:', error);
+        (error) =>{
+          console.error('signin failed:', error);
         }
-      );
+      )
+      // this.authService.signIn(signinCredentialsDto).subscribe(
+      //   (response) => {
+      //     console.log('Sign in successful:', response);
+      //     localStorage.setItem('accessToken', response.accessToken);
+      //     // localStorage.setItem('role', response.role);
+      //     this.router.navigate(['/movie']);
+      //   },
+      //   (error) => {
+      //     console.error('Sign in failed:', error);
+      //   }
+      // );
+      
     }
   }
 

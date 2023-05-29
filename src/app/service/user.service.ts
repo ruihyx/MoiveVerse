@@ -24,6 +24,7 @@ export class UserService {
   
   logout(): void {
     localStorage.removeItem('accessToken');
+    this.tmdb_Key = ''
     // localStorage.removeItem('username');
     // localStorage.removeItem('tmdb_Key');
     this.router.navigate(['/signin']);

@@ -4,6 +4,8 @@ import {Movie, MovieService } from 'src/app/service/movie.service';
 import { filter, Subscription } from 'rxjs';  
 import { ScrollpositionService } from 'src/app/service/scrollposition.service';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-movielist',
@@ -15,11 +17,12 @@ export class MovielistComponent implements OnInit {
   movies: Movie[] = [];
   private movieSubscription!: Subscription;
   private navigationSubscription!: Subscription;
+  private page = 1;
 
 
 
   constructor(private movieService: MovieService, private scrollPositionService: ScrollpositionService, 
-    private router: Router, private renderer: Renderer2) {
+    private router: Router, private renderer: Renderer2, private authService:AuthService, private userService: UserService) {
     this.navigationSubscription = this.router.events.pipe(
       filter((e): e is NavigationStart => e instanceof NavigationStart)
     ).subscribe(e => {
@@ -45,6 +48,31 @@ export class MovielistComponent implements OnInit {
       setTimeout(() => {window.scrollTo(position[0], position[1]); 
       }, 100);
     }
+    // const position = this.scrollPositionService.positions.movies;
+    // if (position){
+     
+    //   window.scrollTo(...position)
+    // }
+  }
+
+  get currentUser(): string | null {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      const { id, username, email, tmdb_key, exp } = this.authService.getUserData(accessToken)
+    return username
+  }
+  return null
+  }
+
+  signOut(): void {
+    this.userService.logout();
+  }
+
+  onScroll() {
+    
+    this.page += 1;
+    this.movieService.getMovies(this.page);
+    console.log("scrolled!!");
   }
 
   ngOnDestroy(): void {

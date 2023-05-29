@@ -29,6 +29,20 @@ export class Signup11Component implements OnInit{
     })
   }
 
+
+get isUserLoggedIn(): boolean {
+  return this.userService.isUserLoggedIn;
+}
+
+get currentUser(): string | null {
+  return localStorage.getItem('username');
+}
+
+
+signIn(){
+  this.router.navigate(['signin'])
+}
+
   onNext(){
     this.userService.username = this.username?.value;
     this.userService.tmdb_Key = this.tmdb?.value;

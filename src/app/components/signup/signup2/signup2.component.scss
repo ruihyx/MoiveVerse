@@ -1,19 +1,38 @@
 .header{
     display: flex;
-    justify-content: space-between; 
-    padding: 30px;
+    justify-content: space-between;
+    z-index: 1z;
     border-bottom: 1px solid#ccc;
+    padding: 30px;
+  
   }
-
   .default-ltr-cache-mv4tc2 {
-    
     width: 9.25rem;
     height: 2.5rem;
     color: rgba(229, 9, 20, 1);
     fill: currentColor;
     display: block;
     z-index: 2;
+    margin-top: 5px;
     
+  }
+  
+  .username{
+    color:rgb(120, 118, 118);
+    z-index: 2;
+    font-size: 18px;
+    margin-right: 15px;
+  
+  }
+  #signin{
+    color: white;
+    background-color: rgb(229, 9, 20, 1);
+    border:rgb(229, 9, 20, 1);
+    height:40px;
+    width: 90px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 8px;
   }
 .signup2-container {
     display: flex;
@@ -72,8 +91,3 @@ button{
     height: 50px;
  }
 
- #signout{
-    width: 90px;
-    height: 30px;
-    font-size: 15px;
- }

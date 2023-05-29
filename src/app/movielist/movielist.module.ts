@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { MoiveitemComponent } from '../components/movie/moiveitem/moiveitem.component';
 import { AuthGuard } from '../auth.guard';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // import { MoiveitemComponent } from '../components/movie/moiveitem/moiveitem.component';
 
 const routes: Routes =[
@@ -18,7 +19,9 @@ canActivate: [AuthGuard]}
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    InfiniteScrollModule
+    
   ]
 })
 export class MovielistModule { }
