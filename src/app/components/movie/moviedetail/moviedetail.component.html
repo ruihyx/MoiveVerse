@@ -1,3 +1,4 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
 <div class="background-image overlay" [style.background-image]="'url(' + backgroundImageUrl + ')'"></div>
 <div class="movie-details">
 
@@ -31,8 +32,14 @@
       </div>
     </div>  
   </section>  
+<!-- </div> -->
+
 </div>
-   
+
+
+<!-- <div *ngIf="isDataLoaded"> -->
+
+
 
   <!-- </div>backdrop_pata
  -->

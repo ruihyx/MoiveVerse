@@ -20,7 +20,6 @@ export class TrailerdialogComponent implements OnInit {
   
   }
   ngOnInit(): void {
-    // if data has trailers property and it is an array
     if(this.data && this.data.trailers && Array.isArray(this.data.trailers)){
       this.trailers = this.data.trailers;
       // set the first trailer's id as the initial videoId

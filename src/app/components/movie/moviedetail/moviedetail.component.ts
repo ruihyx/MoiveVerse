@@ -13,7 +13,8 @@ import { Movie, MovieService } from 'src/app/service/movie.service';
 
 
 export class MoviedetailComponent implements OnInit {
-  movieId?: number;
+  
+  // movieId?: number;
   movie:  Movie = {
     id: 0,
     title: '',
@@ -25,9 +26,13 @@ export class MoviedetailComponent implements OnInit {
     popularity:0,
   };
 
-  trailers: any[] =[];
-credits: any;
+  // trailers: any[] =[];
+  isLoading = true;
+
+  // movie?: Movie;
+  credits: any;
   images: any;
+  trailers: any;
   castIndex = 0;
   imageIndex = 0;
   backgroundImageUrl !: string;
@@ -36,49 +41,66 @@ credits: any;
     private dialog: MatDialog) { }
 
     ngOnInit(): void {
-      this.movieId = +this.route.snapshot.paramMap.get('id')!;
-      this.movieService.getMovieDetails(this.movieId).subscribe(
-        (movie: Movie) => {
-          this.movie = movie;
-          console.log(this.movie)
-        },
-        (error) => {
-          console.error('Error fetching movie details:', error);
-        }
-      );
-    // Fetch movie credits
-    this.movieService.getMovieCredits(this.movieId).subscribe(
-      (credits: any) => {
-        this.credits = credits.cast;
-        console.log(this.credits)
-      },
-      (error) => {
-        console.error('Error fetching movie credits:', error);
+      const data = this.route.snapshot.data;
+      console.log('data is', data['movie'].credits.cast)
+      this.movie = data['movie'].movie;
+      this.credits = data['movie'].credits.cast;
+      this.images = data['movie'].images.backdrops;
+      this.trailers = data['movie'].trailers.results;
+  
+      
+      if (this.images.length > 0) {
+        this.backgroundImageUrl ='https://image.tmdb.org/t/p/w500' + this.images[0].file_path;
+      
       }
-    );
+      console.log(this.backgroundImageUrl)
+      this.isLoading = false;
+     
+    //   this.movieId = +this.route.snapshot.paramMap.get('id')!;
+    //   // Fetch movie basic details
+    //   this.movieService.getMovieDetails(this.movieId).subscribe(
+    //     (movie: Movie) => {
+    //       this.movie = movie;
+    //       console.log(this.movie)
+    //     },
+    //     (error) => {
+    //       console.error('Error fetching movie details:', error);
+    //     }
+    //   );
+    // // Fetch movie credits
+    // this.movieService.getMovieCredits(this.movieId).subscribe(
+    //   (credits: any) => {
+    //     this.credits = credits.cast;
+    //     console.log(this.credits)
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching movie credits:', error);
+    //   }
+    // );
     
-    // Fetch movie images
-    this.movieService.getMovieImages(this.movieId).subscribe(
-      (images: any) => {
-        this.images = images.backdrops;
-        console.log(this.images)
-        if (images.backdrops.length > 0) {
-          this.backgroundImageUrl ='https://image.tmdb.org/t/p/w500' + images.backdrops[0].file_path
-        }
-      },
-      (error) => {
-        console.error('Error fetching movie images:', error);
-      }
-    );
-      // Fetch the trailers
-      this.movieService.getMovieTrailers(this.movieId).subscribe(
-        (trailers: any) => {
-          this.trailers = trailers.results;
-        },
-        (error) => {
-          console.error('Error fetching movie trailers:', error);
-        }
-      );
+    // // Fetch movie images
+    // this.movieService.getMovieImages(this.movieId).subscribe(
+    //   (images: any) => {
+    //     this.images = images.backdrops;
+    //     console.log(this.images)
+    //     if (images.backdrops.length > 0) {
+    //       this.backgroundImageUrl ='https://image.tmdb.org/t/p/w500' + images.backdrops[0].file_path
+    //     }
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching movie images:', error);
+    //   }
+    // );
+    //   // Fetch the trailers
+    //   this.movieService.getMovieTrailers(this.movieId).subscribe(
+    //     (trailers: any) => {
+    //       this.trailers = trailers.results;
+    //     },
+    //     (error) => {
+    //       console.error('Error fetching movie trailers:', error);
+    //     }
+    //   );
+ 
     }
 
 

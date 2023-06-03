@@ -56,7 +56,7 @@ export class Signup1Component implements OnInit {
           })
         );
       }),
-      tap(result => console.log('Final result', result))
+      // tap(result => console.log('Final result', result))
     );
   }
   
@@ -65,7 +65,7 @@ export class Signup1Component implements OnInit {
   }
   onNext() {
     if (this.form.valid) {
-      // Save email and password to local storage or a shared service
+      // Save email and password to a shared service
       this.userService.email = this.form.get('email')?.value;
       this.userService.password = this.form.get('password')?.value;
       this.router.navigate(['/signup11'])

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import {Movie, MovieService } from 'src/app/service/movie.service';
 // import { Movie } from 'src/app/movie';
 import { filter, Subscription } from 'rxjs';  

@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TrailerdialogComponent } from '../components/movie/trailerdialog/trailerdialog.component';
 import { MoviedetailResolver } from '../moviedetail.resolver';
 import { RoleGuard } from '../role.guard';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 const routes: Routes =[
   {path: '',
@@ -25,6 +26,7 @@ resolve: {
   imports: [
     CommonModule,
     SharedModule,
+    MatProgressSpinnerModule,
     // YouTubePlayerModule,
     RouterModule.forChild(routes),
     // MatDialogModule
