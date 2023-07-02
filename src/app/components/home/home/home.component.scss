@@ -11,6 +11,9 @@
   .contianer{
     display: flex;
 
+  }  
+  .appname{
+    color: rgba(229, 9, 20, 1)
   }
 
   
@@ -61,8 +64,10 @@
   .header{
     display: flex;
     justify-content: space-between;
-    z-index: 1z;
+    z-index: 4;
     background-color: black;
+    padding-left: 3%;
+    padding-right: 3%;
   }
   .default-ltr-cache-mv4tc2 {
     width: 9.25rem;
@@ -85,6 +90,7 @@
 
 
   #signin {
+    
     color: white;
     background-color: rgb(229, 9, 20, 1);
     border:rgb(229, 9, 20, 1);
@@ -92,7 +98,7 @@
     width: 90px;
     font-size: 18px;
     border-radius: 5px;
-    margin: 8px;
+    margin-top: 20px;
     
   }
 #signout{
@@ -104,6 +110,7 @@
     font-size: 18px;
     border-radius: 5px;
     margin: 8px;
+    margin-top: 20px;
   }
 #movielist{
   z-index: 3;
@@ -126,6 +133,7 @@
   
   .uppersection2{
     display: flex;
+    padding-top: 15%;
     align-items: center;
     flex-direction: column;
     text-align: center;
