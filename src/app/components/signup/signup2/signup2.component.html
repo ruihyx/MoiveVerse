@@ -9,8 +9,7 @@
     <span>
         <button *ngIf="!isUserLoggedIn" type="signin" id="signin" (click)="tosignin()">sign in</button>
         <span *ngIf="isUserLoggedIn">
-        <span class="username">{{currentUser}}</span>
-          <button type="signout" id="signout" (click)="signOut()">sign out</button>
+        
         </span>
       </span>
 

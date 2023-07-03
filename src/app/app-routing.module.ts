@@ -32,6 +32,7 @@
 // export class AppRoutingModule { }
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
+import { Auth1Guard } from './auth1.guard';
 
 
 
@@ -39,7 +40,7 @@ const routes: Routes = [
 
 
 
-   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+   { path: '',  canActivate: [Auth1Guard],loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'signin', loadChildren: () => import('./signin/signin.module').then(m => m.SigninModule) },
   { path: 'signup1', loadChildren: () => import('./signup/signup1/signup1.module').then(m => m.Signup1Module) },
   { path: 'signup11', loadChildren: () => import('./signup/signup11/signup11.module').then(m => m.Signup11Module) },
