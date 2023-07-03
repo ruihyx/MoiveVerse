@@ -26,9 +26,11 @@ import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth.guard';
 import { JwtInterceptor } from './jwt.interceptor';
 import { ViewportScroller } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
+
     // SigninComponent,
     // Signup1Component,
     // Signup2Component,

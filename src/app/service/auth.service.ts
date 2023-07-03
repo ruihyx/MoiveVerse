@@ -17,7 +17,8 @@ export interface AuthDto {
 
 
 export class AuthService {
-  private apiUrl = 'http://localhost:4231';
+  // private apiUrl = 'http://localhost:4231';
+  private apiUrl = 'https://movienest-8a48fb0ad7f2.herokuapp.com'
   private jwtHelper = new JwtHelperService()
  
 
@@ -32,7 +33,7 @@ export class AuthService {
   // }
 
   signIn(data: any): Observable<any> {
-    return this.http.post<any>('http://localhost:4231/auth/signin', data).pipe(
+    return this.http.post<any>(`${this.apiUrl}/auth/signin`, data).pipe(
       tap(({accessToken, role}:any)=>{
         this.setUserdataByToken({accessToken,role});
         this.router.navigate(['/movie'])
@@ -47,7 +48,7 @@ export class AuthService {
   ): Observable<any> {
     
 
-    return this.http.post('http://localhost:4231/auth/signup', userData);
+    return this.http.post(`${this.apiUrl}/auth/signup`, userData);
   }
 
   update(userData: any): Observable<any>{
