@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class Signup1Component implements OnInit {
   form!: FormGroup;
+  private apiUrl = 'https://movienest-8a48fb0ad7f2.herokuapp.com'
 
   constructor(private fb: FormBuilder, private router: Router, private userService: UserService, private http: HttpClient) {
 
@@ -42,7 +43,7 @@ export class Signup1Component implements OnInit {
         if (!control.value) {
           return of(null);
         }
-        return this.http.post<boolean>('http://localhost:4231/auth/check-email', 
+        return this.http.post<boolean>(`${this.apiUrl}/auth/check-email`, 
         { email: control.value }).pipe(
           tap(response => console.log('HTTP response', response)),
           map(exists => {
