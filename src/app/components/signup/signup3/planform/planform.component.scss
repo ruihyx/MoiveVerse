@@ -1,82 +1,87 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-   
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+ 
+}
+
+.row {
+  display: flex;
+}
+
+.col-3 {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  align-items: center;
+  justify-content: center;
   
-  .row {
-    display: flex;
-  }
-  
-  .col-3 {
-    flex: 1;
-    padding: 15px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-  }
+}
 
 .r{
-    height:40px;
-    vertical-align: middle
+  height:50px;
+  
+  
 }
 
 .col-1{
-    width: 300px;
+  width: 300px;
 
 }
 
 .header1 {
 
+text-align: center;
+padding: 5px;
+font-weight: bold;
+border-radius: 5px;
+margin-bottom: 10px;
+height: 60px;
+}
+.header {
+  background-color: rgba(255, 0, 0, 0.486);
   text-align: center;
-  padding: 5px;
+  
   font-weight: bold;
   border-radius: 5px;
   margin-bottom: 10px;
-  height: 60px;
+  height: 40px;
+  padding-top: 20%;
+ 
+
 }
-  .header {
-    background-color: rgba(255, 0, 0, 0.486);
-    text-align: center;
-    padding: 5px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    height: 60px;
 
-  }
-  
-  .selected .header {
-    background-color: red;
-    color: white;
-  }
+.selected .header {
+  background-color: red;
+  color: white;
+}
 
-  .price,
-  .video,
-  .resolution,
-  .device,
-  .download {
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .triangle {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid red;
-    position: absolute;
-    top: calc(100% - 10px);
-    left: calc(50% - 10px);
-    display: none;
-  }
-  
-  .selected .triangle {
-    display: block;
-  }
-  
+.price,
+.video,
+.resolution,
+.device,
+.download {
+  padding: 5px;
+  text-align: center;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid red;
+  position: absolute;
+  top: calc(100% - 10px);
+  left: calc(50% - 10px);
+  display: none;
+}
+
+.selected .triangle {
+  display: block;
+}
